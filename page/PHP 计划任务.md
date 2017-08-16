@@ -4,6 +4,7 @@
 ## 执行 PHP 脚本
 #### 1.直接运行 PHP 脚本
 在 Crontab 文件中写
+
 ```
 00 * * * * /usr/local/bin/php /home/john/myscript.php
 ```
