@@ -13,7 +13,7 @@
 
 5.[PHP 导入 CSV](https://github.com/zyfoolboy/PHP-work-issue/blob/master/page/PHP%20%E5%AF%BC%E5%85%A5%20CSV.md)
 
-6.[Laravel 总结]()
+6.[使用 PHPExcel 导出 Excel](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/%E4%BD%BF%E7%94%A8%20PHPExcel%20%E5%AF%BC%E5%87%BA%20Excel.md)
 ## 数据库相关
 1.MySQL
 
