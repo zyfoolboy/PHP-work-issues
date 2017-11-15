@@ -15,7 +15,7 @@
 
 6.[使用 PHPExcel 导出 Excel](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/%E4%BD%BF%E7%94%A8%20PHPExcel%20%E5%AF%BC%E5%87%BA%20Excel.md)
 
-7.[JS 文件代码组织结构建议](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/JS%20%E6%96%87%E4%BB%B6%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84%E5%BB%BA%E8%AE%AE.md)
+7.[Ext 中 JS 文件代码组织结构建议](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/JS%20%E6%96%87%E4%BB%B6%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84%E5%BB%BA%E8%AE%AE.md)
 ## 数据库相关
 1.MySQL
 
