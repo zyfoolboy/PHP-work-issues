@@ -108,5 +108,6 @@ class TestController extends Controller
 
 通过以上代码可以看出参数实例的生成是通过 PHP 反射机制来生成的。在 transformDependency() 方法中，通过 ReflectionParameter 的 getDefaultValue() 来根据参数类型生成一个实例。
 
-
+参考：
+[ReflectionParameter](http://www.php.net/manual/zh/class.reflectionparameter.php)
 
