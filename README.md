@@ -2,6 +2,7 @@
 记录 PHP 开发过程中遇到的问题
 ## 服务器相关
 * 服务器搭建
+* 服务器配置
 
 ## 代码相关
 * [web 服务器是怎么和 PHP 关联的](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201804/web%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%92%8C%20PHP%20%E5%85%B3%E8%81%94%E7%9A%84.md)
