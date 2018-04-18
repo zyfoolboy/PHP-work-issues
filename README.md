@@ -3,6 +3,7 @@
 ## 服务器相关
 * 服务器搭建
 * 服务器配置
+* [iTerm2 设置一键通过跳板机登录服务器](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/service/iTerm2%20%E8%AE%BE%E7%BD%AE%E4%B8%80%E9%94%AE%E9%80%9A%E8%BF%87%E8%B7%B3%E6%9D%BF%E6%9C%BA%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8.md)
 
 ## 代码相关
 * [web 服务器是怎么和 PHP 关联的](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201804/web%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%92%8C%20PHP%20%E5%85%B3%E8%81%94%E7%9A%84.md)
