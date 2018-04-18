@@ -1,19 +1,19 @@
 # iTerm2 设置一键通过跳板机登录服务器
 
 
-在 
+在 /.ssh 文件夹下创建文件内容如下
 
 ```
 #!/usr/bin/expect -f
-set host 192.168.132.29
-set TERMSERV 42.62.69.161
-set USER zy26
-set UATUN zy26
+set host ***.***.***.**
+set TERMSERV **.**.**.***
+set USER ***
+set UATUN ***
 
 # 登录跳板机
-spawn ssh -A $USER@$TERMSERV -p 34185
+spawn ssh -A $USER@$TERMSERV -p ***
 # 登录内网
-expect "*zy26*" {send "ssh $UATUN@$host\r"}
+expect "*username*" {send "ssh $UATUN@$host\r"}
 interact
 ```
 
