@@ -77,3 +77,25 @@
 
 [test1.php](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/test1.php)
 
+### 20180514 22:10 - 
+
+**表达式**
+
+	在 PHP 中，几乎所写的任何东西都是一个表达式。简单但却最精确的定义一个表达式的方式就是“任何有值的东西”。
+	函数也是表达式，表达式的值即为它们的返回值。
+**运算符**
+	
+	PHP 支持引用赋值，使用“$var = &$othervar;”语法。引用赋值意味着两个变量指向了同一个数据，没有拷贝任何东西。
+	$a <=> $b 太空船运算符（组合比较符）当$a小于、等于、大于$b时 分别返回一个小于、等于、大于0的integer 值。 PHP7开始提供.
+	$a ?? $b ?? $c NULL 合并操作符 从左往右第一个存在且不为 NULL 的操作数。如果都没有定义且不为 NULL，则返回 NULL。PHP7开始提供。（和 ?: 有一点不一样 $a ?? $b 是判断 $a 是否有值， $a ?: $b 是判断 $a 是否为真）
+	由于浮点数 float 的内部表达方式，不应比较两个浮点数float是否相等。
+	PHP 支持一个错误控制运算符：@。
+	PHP 支持一个执行运算符：反引号（``）。注意这不是单引号！PHP 将尝试将反引号中的内容作为 shell 命令来执行，并将其输出信息返回（即，可以赋给一个变量而不是简单地丢弃到标准输出）。使用反引号运算符“`”的效果与函数shell_exec() 相同。
+	数组 + 运算符把右边的数组元素附加到左边的数组后面，两个数组中都有的键名，则只用左边数组中的，右边的被忽略。
+	检查一个对象是否不是某个类的实例，可以使用逻辑运算符 not。
+	instanceof也可用于确定一个变量是不是实现了某个接口的对象的实例:
+	虽然 instanceof 通常直接与类名一起使用，但也可以使用对象或字符串变量
+
+[operator.php](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/operator.php) [list_function.php](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/list_function.php)
+
+
