@@ -98,4 +98,20 @@
 
 [operator.php](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/operator.php) [list_function.php](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/list_function.php)
 
+### 20180515 20:10 - 23:10
+
+**流程控制**
+
+	一般用法是 declare(ticks=N);Zend引擎每执行1条低级语句就去执行一次 register_tick_function() 注册的函数。可以粗略的理解为每执行一句php代码（例如:$num=1;）就去执行下已经注册的tick函数。
+	require 在出错时产生 E_COMPILE_ERROR 级别的错误。换句话说将导致脚本中止而 include 只产生警告（E_WARNING），脚本会继续运行。
+	当一个文件被包含时，语法解析器在目标文件的开头脱离 PHP 模式并进入 HTML 模式，到文件结尾处恢复。由于此原因，目标文件中需要作为 PHP 代码执行的任何代码都必须被包括在有效的 PHP 起始和结束标记之中。
+	
+**函数**
+
+	匿名函数目前是通过 Closure 类来实现的。
+
+[declare.php](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/declare.php)
+
+[include](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/201805/include)
+
 
