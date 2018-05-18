@@ -160,4 +160,73 @@ Trait 是为 PHP 的单继承语言特性准备的代码复用机制。Trait 不
 
 命名空间通过关键字namespace 来声明。如果一个文件中包含命名空间，它必须在其它所有代码之前声明命名空间，除了一个以外：declare关键字。另外，所有非 PHP 代码包括空白符都不能出现在命名空间的声明之前。PHP 允许将同一个命名空间的内容分割存放在不同的文件中。
 
+### 20180518 22:10 - 23:10
+
+PHP 可以在同一个文件中定义多个命名空间。语法格式有两种：
+
+```
+<?php
+namespace MyProject;
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function connect() { /* ... */  }
+
+namespace AnotherProject;
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function connect() { /* ... */  }
+?>
+```
+
+大括号语法：
+
+```
+<?php
+namespace MyProject {
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function connect() { /* ... */  }
+}
+
+namespace AnotherProject {
+
+const CONNECT_OK = 1;
+class Connection { /* ... */ }
+function connect() { /* ... */  }
+}
+?>
+```
+
+PHP支持两种抽象的访问当前命名空间内部元素的方法，__NAMESPACE__ 魔术常量和namespace关键字。常量__NAMESPACE__的值是包含当前命名空间名称的字符串。
+
+```
+<?php
+namespace MyProject;
+
+echo '"', __NAMESPACE__, '"'; // 输出 "MyProject"
+?>
+```
+
+关键字 namespace 可用来显式访问当前命名空间或子命名空间中的元素。它等价于类中的 self 操作符。
+
+```
+<?php
+namespace MyProject;
+
+function test() {
+    echo '123';
+}
+
+const CONSTANT = 222;
+
+namespace\test(); //输出 123
+
+$b = namespace\CONSTANT;
+
+echo $b;//输出 222
+?>
+```
 
