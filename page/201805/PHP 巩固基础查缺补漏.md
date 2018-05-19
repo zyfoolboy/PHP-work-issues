@@ -230,3 +230,48 @@ echo $b;//输出 222
 ?>
 ```
 
+### 20180519  22:30 - 
+
+**PHP 7 错误处理**
+
+PHP 7 的错误异常可以被第一个匹配的 try / catch 块所捕获。如果没有匹配的 catch 块，则调用异常处理函数（事先通过 set_exception_handler() 注册）进行处理。 如果尚未注册异常处理函数，则按照传统方式处理：被报告为一个致命错误（Fatal Error）。
+
+Error 类并非继承自 Exception 类，所以不能用 `catch (Exception $e) { ... } `来捕获 Error。你可以用 `catch (Error $e) { ... }`，或者通过注册异常处理函数（ set_exception_handler()）来捕获 Error。
+
+对 20180513 补充
+
+原：
+     PHP是将函数以string形式传递的。
+	   一个已实例化的 object 的方法被作为 array 传递，下标 0 包含该 object，下标 1 包含方法名。
+	   静态类方法也可不经实例化该类的对象而传递，只要在下标 0 中包含类名而不是对象。
+	   
+	   
+普通的函数调用，函数名是以string传递的 `'test'()` 可以访问test() 方法;
+对于实例化的 object 以数组传递，数组第一个是一个已经实例化的对象，第二个是方法命，`[$this, 'foo']()` 也可以访问;
+
+
+```
+<?php
+class Test {
+	public function foo() {
+		echo "function name is foo \n";
+	}	
+	
+	public static function tt() {
+		echo "function name is tt \n";
+	}
+}
+
+function ww() {
+	echo "function name is ww \n";
+}
+
+$test = new Test;
+
+[$test, 'foo']();
+['Test', 'tt']();
+'ww'();
+?>
+```
+
+
