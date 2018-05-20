@@ -274,4 +274,13 @@ $test = new Test;
 ?>
 ```
 
+### 20180520 22:00 - 23:00
+
+**生成器**
+
+生成器的核心是yield关键字。它最简单的调用形式看起来像一个return申明，不同之处在于普通return会返回值并终止函数的执行，而yield会返回一个值给循环调用此生成器的代码并且只是暂停执行生成器函数。
+
+参考：
+[在PHP中使用协程实现多任务调度](http://www.laruence.com/2015/05/28/3038.html)
+[PHP yield 分析](https://www.cnblogs.com/lynxcat/p/7954456.html)
 
