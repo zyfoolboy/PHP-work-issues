@@ -284,3 +284,50 @@ $test = new Test;
 [在PHP中使用协程实现多任务调度](http://www.laruence.com/2015/05/28/3038.html)
 [PHP yield 分析](https://www.cnblogs.com/lynxcat/p/7954456.html)
 
+
+### 20180521 22:20 - 
+
+**数组函数**
+
+array_change_key_case() 将 array 数组中的所有键名改为全小写或大写。
+
+    array array_change_key_case ( array $array [, int $case = CASE_LOWER ] )
+    
+case 可以传两种常量，CASE_UPPER(转换为大写) 或 CASE_LOWER（转换为小写）。
+
+
+array_chunk 将一个数组分割成多个数组，其中每个数组的单元数目由 size 决定。最后一个数组的单元数目可能会少于 size 个。
+
+    array array_chunk ( array $array , int $size [, bool $preserve_keys = false ] )
+    
+    
+array
+需要操作的数组
+
+size
+每个数组的单元数目
+
+preserve_keys
+设为 TRUE，可以使 PHP 保留输入数组中原来的键名。如果你指定了 FALSE，那每个结果数组将用从零开始的新数字索引。默认值是 FALSE。
+
+    array array_column ( array $input , mixed $column_key [, mixed $index_key = null ] )
+
+array_column() 返回input数组中键值为column_key的列， 如果指定了可选参数index_key，那么input数组中的这一列的值将作为返回数组中对应值的键。
+
+input
+需要取出数组列的多维数组。 如果提供的是包含一组对象的数组，只有 public 属性会被直接取出。 为了也能取出 private 和 protected 属性，类必须实现 __get() 和 __isset() 魔术方法。
+
+column_key
+需要返回值的列，它可以是索引数组的列索引，或者是关联数组的列的键，也可以是属性名。 也可以是NULL，此时将返回整个数组（配合index_key参数来重置数组键的时候，非常管用）
+
+index_key
+作为返回数组的索引/键的列，它可以是该列的整数索引，或者字符串键值。
+
+    array array_combine ( array $keys , array $values )
+    
+array_combine 返回一个 array，用来自 keys 数组的值作为键名，来自 values 数组的值作为相应的值。如果两个数组的单元数不同则返回 FALSE。
+
+    array array_count_values ( array $array )
+    
+array_count_values() 返回一个数组： 数组的键是 array 里单元的值； 数组的值是 array 单元的值出现的次数。对数组里面的每个不是 string 和 integer 类型的元素抛出一个警告错误。
+
