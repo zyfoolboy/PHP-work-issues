@@ -285,7 +285,7 @@ $test = new Test;
 [PHP yield 分析](https://www.cnblogs.com/lynxcat/p/7954456.html)
 
 
-### 20180521 22:20 - 
+### 20180521 22:20 - 23:10
 
 **数组函数**
 
@@ -330,4 +330,45 @@ array_combine 返回一个 array，用来自 keys 数组的值作为键名，来
     array array_count_values ( array $array )
     
 array_count_values() 返回一个数组： 数组的键是 array 里单元的值； 数组的值是 array 单元的值出现的次数。对数组里面的每个不是 string 和 integer 类型的元素抛出一个警告错误。
+
+### 20180522 22:30 - 21:10
+
+    array array_diff_assoc ( array $array1 , array $array2 [, array $... ] )
+
+array_diff_assoc() 返回一个数组，该数组包括了所有在 array1 中但是不在任何其它参数数组中的值。
+
+    array array_diff_key ( array $array1 , array $array2 [, array $... ] )
+
+根据 array1 中的键名和 array2 进行比较，返回不同键名的项。
+
+    array array_diff_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+    
+对比了 array1 和 array2 并返回不同之处。和 array_diff_assoc() 不同的是使用了用户自定义的回调函数，而不是内置的函数。
+
+    array array_diff_ukey ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+
+array_diff_ukey() 返回一个数组，该数组包括了所有出现在 array1 中但是未出现在任何其它参数数组中的键名的值。此比较是通过用户提供的回调函数来进行的。如果认为第一个参数小于，等于，或大于第二个参数时必须分别返回一个小于零，等于零，或大于零的整数。
+
+    array array_diff ( array $array1 , array $array2 [, array $... ] )
+
+对比 array1 和其他一个或者多个数字，返回在 array1 中但是不在其他 array 里的值。只比较值。
+
+
+| 函数 | 比较的东西 | 返回 |
+| --- | --- | --- |
+| array_diff_assoc() | 比较键名和值 | 返回键名和值不一样的 `$key => $value` |
+| array_diff_key() | 比较键名 | 返回键名不一样的 `$key => $value` |
+| array_diff_uassoc() | 比较键名和值,用户可以自定义返回规则 key_compare_func 返回 0 代表相同 | 根据 key_compare_func 的规则返回 |
+| array_diff_ukey() | 比较键名,用户可以自定义返回规则 key_compare_func 返回 0 代表相同 | 根据 key_compare_func 的规则返回 |
+| array_diff() | 比较值 | 返回值不一样的 `$key => $value` |
+
+
+    array array_fill_keys ( array $keys , mixed $value )
+    
+使用 value 参数的值作为值，使用 keys 数组的值作为键来填充一个数组。
+
+    array array_fill ( int $start_index , int $num , mixed $value )
+    
+array_fill() 用 value 参数的值将一个数组填充 num 个条目，键名由 start_index 参数指定的开始。
+
 
