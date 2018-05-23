@@ -331,7 +331,7 @@ array_combine 返回一个 array，用来自 keys 数组的值作为键名，来
     
 array_count_values() 返回一个数组： 数组的键是 array 里单元的值； 数组的值是 array 单元的值出现的次数。对数组里面的每个不是 string 和 integer 类型的元素抛出一个警告错误。
 
-### 20180522 22:30 - 21:10
+### 20180522 22:30 - 23:10
 
     array array_diff_assoc ( array $array1 , array $array2 [, array $... ] )
 
@@ -371,4 +371,42 @@ array_diff_ukey() 返回一个数组，该数组包括了所有出现在 array1 
     
 array_fill() 用 value 参数的值将一个数组填充 num 个条目，键名由 start_index 参数指定的开始。
 
+### 20180523 22:50 - 23:30
+
+    array array_filter ( array $array [, callable $callback [, int $flag = 0 ]] )
+
+依次将 array 数组中的每个值传递到 callback 函数。如果 callback 函数返回 true，则 array 数组的当前值会被包含在返回的结果数组中。数组的键名保留不变。
+
+    array array_flip ( array $array )
+
+array_flip() 返回一个反转后的 array，例如 array 中的键名变成了值，而 array 中的值成了键名。注意 array 中的值需要能够作为合法的键名（例如需要是 integer 或者 string）。如果类型不对，将出现一个警告，并且有问题的键／值对将不会出现在结果里。如果同一个值出现多次，则最后一个键名将作为它的值，其它键会被丢弃。
+
+    array array_intersect_assoc ( array $array1 , array $array2 [, array $... ] )
+
+array_intersect_assoc() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。
+
+    array array_intersect_key ( array $array1 , array $array2 [, array $... ] )
+
+array_intersect_key() 返回一个数组，该数组包含了所有出现在 array1 中并同时出现在所有其它参数数组中的键名的值。
+
+    array array_intersect_uassoc ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+    
+array_intersect_uassoc() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意和 array_intersect() 不同的是键名也用于比较。
+
+    array array_intersect_ukey ( array $array1 , array $array2 [, array $... ], callable $key_compare_func )
+
+array_intersect_ukey() 返回一个数组，该数组包含了所有出现在 array1 中并同时出现在所有其它参数数组中的键名的值。
+
+    array array_intersect ( array $array1 , array $array2 [, array $... ] )
+    
+array_intersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意键名保留不变。
+
+
+| 函数名 | 比较的东西 | 返回值  |
+| --- | --- | --- |
+| array_intersect_assoc() | 比较 `$key => $value` | 返回相同的值 |
+| array_intersect_key() | 比较 $key | 返回出现在第一个参数中并同时出现在所有其它参数数组中的键名的值 |
+| array_intersect_uassoc() | 比较 `$key => $value` 用户可以自定义返回规则 key_compare_func 返回 0 代表相同 | 根据 key_compare_func 规则返回 |
+| array_intersect_ukey() | 比较 $key 用户可以自定义返回规则 key_compare_func 返回 0 代表相同 | 根据 key_compare_func 规则返回 |
+| array_intersect() | 比较 $value | 返回所有在第一个参数中也同时出现在所有其它参数数组中的值 |
 
