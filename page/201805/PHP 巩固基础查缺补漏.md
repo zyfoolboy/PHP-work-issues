@@ -410,3 +410,56 @@ array_intersect() 返回一个数组，该数组包含了所有在 array1 中也
 | array_intersect_ukey() | 比较 $key 用户可以自定义返回规则 key_compare_func 返回 0 代表相同 | 根据 key_compare_func 规则返回 |
 | array_intersect() | 比较 $value | 返回所有在第一个参数中也同时出现在所有其它参数数组中的值 |
 
+### 20180525 22:40 - 23:20
+
+    array array_merge_recursive ( array $array1 [, array $... ] )
+
+array_merge_recursive() 将一个或多个数组的单元合并起来，一个数组中的值附加在前一个数组的后面。返回作为结果的数组。如果输入的数组中有相同的字符串键名，则这些值会被合并到一个数组中去，这将递归下去，因此如果一个值本身是一个数组，本函数将按照相应的条目把它合并为另一个数组。然而，如果数组具有相同的数组键名，后一个值将不会覆盖原来的值，而是附加到后面。
+
+    array array_pad ( array $array , int $size , mixed $value )
+
+array_pad() 返回 array 的一个拷贝，并用 value 将其填补到 size 指定的长度。如果 size 为正，则填补到数组的右侧，如果为负则从左侧开始填补。如果 size 的绝对值小于或等于 array 数组的长度则没有任何填补。有可能一次最多填补 1048576 个单元。
+
+    number array_product ( array $array )
+
+array_product() 以整数或浮点数返回一个数组中所有值的乘积。
+
+    array array_unique ( array $array [, int $sort_flags = SORT_STRING ] )
+
+array_unique() 移除数组中重复的值，接受 array 作为输入并返回没有重复值的新数组。注意键名保留不变。array_unique() 先将值作为字符串排序，然后对每个值只保留第一个遇到的键名，接着忽略所有后面的键名。这并不意味着在未排序的 array 中同一个值的第一个出现的键名会被保留。
+
+    int array_unshift ( array &$array , mixed $value1 [, mixed $... ] )
+    
+array_unshift() 将传入的单元插入到 array 数组的开头。注意单元是作为整体被插入的，因此传入单元将保持同样的顺序。所有的数值键名将修改为从零开始重新计数，所有的文字键名保持不变。
+
+**Linux命令**
+
+tail 命令从指定点开始将文件写到标准输出.使用tail命令的-f选项可以方便的查阅正在改变的日志文件,tail -f filename会把filename里最尾部的内容显示在屏幕上,并且不但刷新,使你看到最新的文件内容. 
+
+1．命令格式;
+
+tail[必要参数][选择参数][文件]   
+
+2．命令功能：
+
+用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。
+
+3．命令参数：
+
+-f 循环读取
+
+-q 不显示处理信息
+
+-v 显示详细的处理信息
+
+-c<数目> 显示的字节数
+
+-n<行数> 显示行数
+
+--pid=PID 与-f合用,表示在进程ID,PID死掉之后结束. 
+
+-q, --quiet, --silent 从不输出给出文件名的首部 
+
+-s, --sleep-interval=S 与-f合用,表示在每次反复的间隔休眠S秒 
+
+
