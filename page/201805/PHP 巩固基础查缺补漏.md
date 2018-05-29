@@ -588,11 +588,12 @@ u  指定用户的所有进程
 
 列出本机的所有 image 文件。
 
-    $ docker image ls
+    docker image ls
 
 删除 image 文件
 
-    $ docker image rm [imageName]
+    docker image rm [imageName]
+    docker rmi [imageName]/[imageId]
 
 pull 拉取镜像
 
@@ -607,6 +608,38 @@ docker run -it -P --name 'centos-test' --rm centos /bin/bash
 # -i 保持标准输入打开 默认为false
 # -t 是否分配一个伪终端
 # 启动一个bash终端，允许用户进行交互
-# --rm 退出后删除镜像数据
+# --rm 退出后删除容器
 ```
+
+### 20180529 22:20 - 23:10
+
+启动一个镜像就会生成一个容器，查看正在运行的容器：
+
+    docker ps
+    
+查看所有容器
+
+    docker ps -a 
+    
+启动容器
+
+    docker start $container-name
+    
+关闭容器
+
+    docker stop $container-name
+    
+如果容器是 Linux 系统的话进入系统命令：
+
+    docekr exec -it [container-name] bash
+
+查看容器详情
+
+    docker inspect [container-name]
+    
+删除容器
+
+    docker rm [container-name-1] [container-name-2] ...
+
+
 
