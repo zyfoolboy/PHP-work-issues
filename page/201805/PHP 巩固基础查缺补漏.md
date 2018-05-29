@@ -582,4 +582,31 @@ u  指定用户的所有进程
 
 [Linux 命令 5 分钟](http://roclinux.cn/?page_id=3759)
 
+### 20180528 22:10 - 23:10
+
+**Docker**
+
+列出本机的所有 image 文件。
+
+    $ docker image ls
+
+删除 image 文件
+
+    $ docker image rm [imageName]
+
+pull 拉取镜像
+
+    docker pull centos
+
+启动镜像
+
+```
+docker run -it -P --name 'centos-test' --rm centos /bin/bash
+# --name 指定容器别名
+# -P 通过NAT机制将容器标记暴露的端口自动映射到本地主机的临时端口
+# -i 保持标准输入打开 默认为false
+# -t 是否分配一个伪终端
+# 启动一个bash终端，允许用户进行交互
+# --rm 退出后删除镜像数据
+```
 
