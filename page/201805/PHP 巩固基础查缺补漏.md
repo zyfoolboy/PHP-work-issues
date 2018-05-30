@@ -642,4 +642,74 @@ docker run -it -P --name 'centos-test' --rm centos /bin/bash
     docker rm [container-name-1] [container-name-2] ...
 
 
+### 20180530 22:30 - 23:10 
+**Docker 网络**
+
+#### 网络类别
+
+查看网络类别
+网络的类别为 none，host，bridge 三种，可以通过以下方式查看：
+
+    docker network ls
+
+* none 型网络
+* 
+顾名思义，此类网络表示容器为独立个体，不与外部通信。
+
+* host 型网络
+
+此类网络表示该容器与宿主机（安装 Docker 的机器）共享网络。
+
+* bridge 型网络
+
+这是容器的默认网络类型，网桥模式意味着容器间可以互相通信，而对外的通信需要借助宿主机，这一形式通常表现为端口号的映射。
+
+查看网络类别详情
+
+    docker network inspect $network-name
+    
+通过这种方式可以查看 JSON 格式的网络类别，在 Containers 条目中可以看到使用当前网络类型的容器列表，注意 Containers 中只会显示那些已经启动的容器。
+
+创建网络
+可以通过以下方式创建一个网络，其中，network-driver 表示网络类别，即 none 或 bridge 或 host，而 network-name 为自定义的网络名：
+
+    docker network create --driver network-driver network-name
+
+如果省略 --driver network-driver 则默认创建 bridge 类型的网络。
+
+为容器指定网络
+我们可以创建自定义的网络环境，并将一些容器放入这一网络内，以此管理容器间的网络连通情况。这种局域网网段的模拟实际是由内部 DNS 实现的。以下罗列将容器添加或移除到某一网络中的方法。
+
+将容器添加进某一网络
+可以通过以下方式将容器 container-name 加入 $network-name 网络中。注意，一个容器可以属于多个网络。
+
+    docker network connect network-name $container-name
+    
+之后，当容器启动时，我们就可以在 `docker network inspect $network-name` 的 Containers 中看到这一容器了。
+
+将容器从某一网络中移除
+
+    docker network disconnect network-name container-name
+    
+在容器生成时指定网络
+我们也可以在容器生成时指定网络，使用如下方法：
+
+    docker run --network network-name mirror-name
+    
+测试网络连通情况
+我们可以通过以下方式查询到容器的 IP 地址：
+
+在容器交互模式中使用 ip addr ；
+
+使用 docker inspect $container-name
+
+使用 docker inspect $container-name | grep IPAddress
+
+之后可以使用 ping 指令测试容期间的网络连通情况。没有 ping 命令的容器需要安装 iputils。
+
+删除网络
+
+docker network rm $network-name
+
+[Docker 快速上手指南](https://segmentfault.com/a/1190000008822648)
 
