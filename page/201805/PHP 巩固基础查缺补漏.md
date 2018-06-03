@@ -713,3 +713,82 @@ docker network rm $network-name
 
 [Docker 快速上手指南](https://segmentfault.com/a/1190000008822648)
 
+### 20180602 20:00 - 22:00
+
+**Docker 配置 nginx php-fmp **
+
+1.下载nginx官方镜像和php-fpm镜像
+
+    docker pull nginx
+    docker pull bitnami/php-fpm
+    
+2.开启 php-fmp 容器
+
+    docker run --name myphp -d -it -v /Users/zhengyong/www/:/var/www/html bitnami/php-fpm
+    
+3.开启 nginx 容器
+
+    docker run -d --name nginx1 -p 8080:80 -v /Users/zhengyong/nginx:/usr/share/nginx/html nginx
+    
+4.修改 nginx 配置
+
+登录容器
+
+    docker exec -it nginx1 /bin/bash
+
+> -i : --interactive，交互模式。
+-t : --tty，开启一个伪终端。
+/bin/bash : 必须写，否则会报错。这是开始伪终端时，进入bash界面，也就是命令行界面。
+
+使用专用的复制命令将配置文件复制到宿主机，然后在宿主机进行编辑编辑完成后覆盖到容器内
+
+    docker cp nginx1:/etc/nginx/conf.d/default.conf default.conf
+    
+在宿主机修改配置文件的php部分，内容如下：
+
+    location ~ \.php$ {
+          root           /var/www/html;
+          fastcgi_pass   172.17.0.5:9000;
+          fastcgi_index  index.php;
+          fastcgi_param  SCRIPT_FILENAME  $document_root$fas    tcgi_script_name;
+          fastcgi_param  SCRIPT_NAME      $fastcgi_script_name;
+          include        fastcgi_params;
+      }
+      
+      
+fastcgi_pass 的 ip 地址为 php-fmp 的 IP 地址，可以通过
+
+    docker inspect myphp
+    
+查看 ip 地址。
+修改完成后覆盖 nginx 容器中的配置文件
+
+    docker cp default.conf nginx1:/etc/nginx/conf.d/default.conf
+
+进入到nginx容器中重新载入配置文件
+
+    docker exec -it nginx1 /bin/bash
+    service nginx reload
+
+
+### 20180603 21:30 - 22:30
+
+**解决 File Not Found 的问题**
+
+在 Docker 搭建 nginx php-fmp 时，遇到一个问题，访问 php 文件一直报 File Not Found 。
+上网搜大多都是说配置路径不对，以及权限没开。
+
+查看日志
+
+    docker logs nginx1
+    
+发现报错：
+
+    FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream
+    
+按照网上搜的解决方案发现并没什么用，我就想在使用 Docker 搭建环境时，我们这里有两个路径，一个是 nginx 的路径，一个是 php-fmp 的路径。我在配置 default.conf 时 fastcgi_param 的路径配置的是 nginx 的路径，访问 html 文件正常，但是访问 php 文件一直报 File Not Found 。如果把 default.conf 的路径换成 php-fmp 的路径试一下，换完之后发现问题被解决了。
+
+
+
+
+
