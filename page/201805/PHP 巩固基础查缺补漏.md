@@ -789,6 +789,6 @@ fastcgi_pass 的 ip 地址为 php-fmp 的 IP 地址，可以通过
 按照网上搜的解决方案发现并没什么用，我就想在使用 Docker 搭建环境时，我们这里有两个路径，一个是 nginx 的路径，一个是 php-fmp 的路径。我在配置 default.conf 时 fastcgi_param 的路径配置的是 nginx 的路径，访问 html 文件正常，但是访问 php 文件一直报 File Not Found 。如果把 default.conf 的路径换成 php-fmp 的路径试一下，换完之后发现问题被解决了。
 
 
-
+[PHP 设计模式](https://github.com/zyfoolboy/PHP-work-issues/blob/master/page/PHP%20%E6%9E%B6%E6%9E%84.md)
 
 
