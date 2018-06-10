@@ -12,10 +12,15 @@
 
 简单工厂的作用在于使对象的创建与使用分离，将对象的创建交给专门的工厂类负责，但是这样不够灵活，当新增一个类时就要修改工厂类的代码，当类比较多的时候工厂方法的代码就会很复杂。
 
+[参考代码](https://github.com/zyfoolboy/PHP-work-issues/tree/master/page/201806/DesignPatterns/Creational/Factory)
+
+
 2.工厂方法模式
 
 此模式中，通过定义一个抽象的核心工厂类，并定义创建产品对象的接口，创建具体产品实例的工作延迟到其工厂子类去完成。
 工厂方法模式是简单工厂模式的升级版，核心的工厂类不在负责所有的对象的创建，而是 把创建对象的工作交给相应的子类去做。当有新的类的时候，不必去修改原有的类，只需要新增加子类即可。
+
+[参考代码](https://github.com/zyfoolboy/PHP-work-issues/tree/master/page/201806/DesignPatterns/Creational/FactoryMethod)
 
 3.抽象工厂模式
 
@@ -24,6 +29,8 @@
 此模式是对工厂方法模式的进一步扩展。在工厂方法模式中，一个具体的工厂负责生产一类具体的产品，即一对一的关系，但是，如果需要一个具体的工厂生产多种产品对象，那么就需要用到抽象工厂模式了。
 
 在添加新的产品对象时，难以扩展抽象工厂来生产新种类的产品，这是因为在抽象工厂角色中规定了所有可能被创建的产品集合，要支持新种类的产品就意味着要对该接口进行扩展，而这将涉及到对抽象工厂角色及其所有子类的修改，显然会带来较大的不便。
+
+[参考代码](https://github.com/zyfoolboy/PHP-work-issues/tree/master/page/201806/DesignPatterns/Creational/AbstractFactory)
 
 #### 建造者模式
 
