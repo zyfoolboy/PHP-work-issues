@@ -1,7 +1,6 @@
 <?php
 
-namespace DesignPatterns\Creational\AbstractFactory;
-
+require 'Text.php';
 /**
  * Class HtmlText
  *
@@ -9,5 +8,8 @@ namespace DesignPatterns\Creational\AbstractFactory;
  */
 class HtmlText extends Text
 {
-
+    public function say()
+    {
+        echo $this->text . "\n";
+    }
 }

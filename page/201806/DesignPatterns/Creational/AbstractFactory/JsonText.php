@@ -1,7 +1,5 @@
 <?php
 
-namespace DesignPatterns\Creational\AbstractFactory;
-
 /**
  * Class JsonText
  *
@@ -9,5 +7,8 @@ namespace DesignPatterns\Creational\AbstractFactory;
  */
 class JsonText extends Text
 {
-
+    public function say()
+    {
+        echo $this->text . "\n";
+    }
 }

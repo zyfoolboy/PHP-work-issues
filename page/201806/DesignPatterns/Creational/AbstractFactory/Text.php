@@ -1,7 +1,5 @@
 <?php
 
-namespace DesignPatterns\Creational\AbstractFactory;
-
 /**
  * Class Text
  *
@@ -15,4 +13,6 @@ abstract class Text
     {
         $this->text = $text;
     }
+
+    abstract public function say();
 }
