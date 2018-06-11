@@ -40,4 +40,5 @@
 
 饭店的套餐可以用建造者模式描述，一个套餐包含多种食物（主食，辅食，饮料等），属于组合品。餐厅的服务员根据套餐信息给不同的厨师传递请求，厨师分别做完之后给到服务员，服务员把这些食物打包组合成套餐给到顾客。
 
+[参考代码](https://github.com/zyfoolboy/PHP-work-issues/tree/master/page/201806/DesignPatterns/Creational/Builder)
 
