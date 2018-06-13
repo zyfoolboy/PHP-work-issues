@@ -54,12 +54,14 @@
 
 单例模式适用情况包括：系统只需要一个实例对象；客户调用类的单个实例只允许使用一个公共访问点。
 
+[参考代码](https://github.com/zyfoolboy/PHP-work-issues/tree/master/page/201806/DesignPatterns/Creational/Singleton)
 
 ### 适配器模式
 
 将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，其别名为包装器(Wrapper)。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。
 在适配器模式中可以定义一个包装类，包装不兼容接口的对象，这个包装类指的就是适配器(Adapter)，它所包装的对象就是适配者(Adaptee)，即被适配的类。
 
+[参考代码](https://github.com/zyfoolboy/PHP-work-issues/tree/master/page/201806/DesignPatterns/Adapter)
 
 ### 桥接模式
 
